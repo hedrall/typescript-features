@@ -107,11 +107,41 @@ let Ctor: abstract new () => HasArea = Shape;
 
 /**
  * 7. Destructured Variables Can Be Explicitly Marked as Unused
- * 未使用の変数が定義できる(jet brainでは効かない?)
+ * 未使用の変数が定義できる(JetBrainでは効かない?)
  */
 
 let [_first, second] = [1,2];
 console.log(second);
+
+/**
+ * 8. Relaxed Rules Between Optional Properties and String Index Signatures
+ */
+type WesAndersonWatchCount = {
+  "Fantastic Mr. Fox"?: number;
+  "The Royal Tenenbaums"?: number;
+  // '鬼滅の刃': number | undefined; // この行があるとエラーが発生する
+};
+
+declare const wesAndersonWatchCount: WesAndersonWatchCount;
+const movieWatchCount: { [key: string]: number } = wesAndersonWatchCount;
+// 4.2以前は
+// ~~~~~~~~~~~~~~~ error!
+// Type 'WesAndersonWatchCount' is not assignable to type '{ [key: string]: number; }'.
+//    Property '"Fantastic Mr. Fox"' is incompatible with index signature.
+//      Type 'number | undefined' is not assignable to type 'number'.
+//        Type 'undefined' is not assignable to type 'number'. (2322)
+
+// numberをインデックスにした場合は場合は対象外
+type WesAndersonWatchCount1 = {
+  [1]: number;
+  [2]?: number;
+  // '鬼滅の刃': number | undefined; // この行があるとエラーが発生する
+};
+declare const wesAndersonWatchCount1: WesAndersonWatchCount1;
+// const movieWatchCount1: { [key: number]: number } = wesAndersonWatchCount1; // error
+
+
+
 
 
 
