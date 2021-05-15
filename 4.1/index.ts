@@ -1,4 +1,5 @@
 /**
+ * TypeScript 4.1 2020/11/19
  * 参考: https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/
  */
 
@@ -133,10 +134,10 @@ function checkOptions(opts: Options) {
 /**
  * 6. any/unknown Are Propagated in Falsy Positions
  */
-declare let foo: unknown;
+declare let foo1: unknown;
 declare let somethingElse: { someProp: string };
 
 // もともと { someProp: string } に解決していたのが、
 // unknownになった
 
-let x = foo && somethingElse;
+let x = foo1 && somethingElse;

@@ -1,9 +1,7 @@
 /**
- * 概要
- *
- * 参考:
- * [TypeScript 4.2　覚書](https://zenn.dev/yutama_kotaro/articles/43ac06011d3b47)
- * [Announcing TypeScript 4.2](https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/#smarter-type-alias-preservation)
+ * TypeScript 4.2 2021/02/23
+ * @see [TypeScript 4.2　覚書](https://zenn.dev/yutama_kotaro/articles/43ac06011d3b47)
+ * @see [Announcing TypeScript 4.2](https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/#smarter-type-alias-preservation)
  */
 
 /**
@@ -19,7 +17,6 @@ export function doStuff(value: BasicPrimitive) {
   const x = value;
   return x;
 }
-
 /**
  * 戻り値が以下に推論される。
  * function doStuff(value: BasicPrimitive): BasicPrimitive | undefined
@@ -33,10 +30,11 @@ export function doStuff(value: BasicPrimitive) {
  * 2. Leading/Middle Rest Elements in Tuple Types
  * タプルの先頭と途中でもRest Elementsを置けるようになる
  */
-
 // タプルの先頭
 let preArray: [...string[], boolean];
-preArray = ['1', false];
+preArray = ['1', '', false];
+
+// 以前はこれがエラー: preArray = ['1', '', false];
 // preArray = ['1', null, false]; // error
 
 let middleArray: [boolean, number, ...string[], number];
