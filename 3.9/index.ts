@@ -3,8 +3,6 @@
  * @see https://devblogs.microsoft.com/typescript/announcing-typescript-3-9/
  */
 
-import has = Reflect.has;
-
 /**
  * 1. Improvements in Inference and Promise.all
  * 推論とpromise.allの改善

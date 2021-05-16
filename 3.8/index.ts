@@ -3,8 +3,6 @@
  * @see https://devblogs.microsoft.com/typescript/announcing-typescript-3-8/
  */
 
-import has = Reflect.has;
-
 /**
  * 1. Type-Only Imports and Exports
  */
