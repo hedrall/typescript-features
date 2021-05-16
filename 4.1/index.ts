@@ -1,6 +1,6 @@
 /**
  * TypeScript 4.1 2020/11/19
- * 参考: https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/
+ * @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/
  */
 
 /**

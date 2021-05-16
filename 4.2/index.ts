@@ -1,7 +1,9 @@
 /**
  * TypeScript 4.2 2021/02/23
- * @see [TypeScript 4.2　覚書](https://zenn.dev/yutama_kotaro/articles/43ac06011d3b47)
- * @see [Announcing TypeScript 4.2](https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/#smarter-type-alias-preservation)
+ *
+ * @see https://devblogs.microsoft.com/typescript/announcing-typescript-4-2/#smarter-type-alias-preservation
+ * TypeScript 4.2　覚書
+ * @see https://zenn.dev/yutama_kotaro/articles/43ac06011d3b47
  */
 
 /**
