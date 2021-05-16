@@ -58,19 +58,3 @@ if (hasImportantPermissions) {}
 const test = hasImportantPermissions ? 1 : 2;
 
 declare function smushObjects<T, U>(x: T, y: U): T & U;
-
-interface Circle {
-  kind: "circle";
-  radius: number;
-}
-
-interface Square {
-  kind: "square";
-  sideLength: number;
-}
-
-declare let x: Circle;
-declare let y: Square;
-
-let z = smushObjects(x, y);
-console.log(z.kind);
