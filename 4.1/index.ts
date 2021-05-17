@@ -55,6 +55,7 @@ type Getters<T> = {
   [K in keyof T as `get${Capitalize<string & K>}`]: () => T[K]
 };
 // このasで変換したり、フィルターをかけたりできる
+type AAA = Getters<{name: string, age: number}>;
 
 interface Person {
   name: string;
@@ -116,6 +117,8 @@ interface Options {
 function checkOptions(opts: Options) {
   opts.path // string
   opts.permissions // number
+  opts['c'].toString(); // number
+  opts.hogo;
 
   // これらは以前エラーしないコードだった。
   // なぜなら、全て string | number に推論されていたから

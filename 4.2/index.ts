@@ -16,8 +16,7 @@ export function doStuff(value: BasicPrimitive) {
   if (Math.random() < 0.5) {
     return undefined;
   }
-  const x = value;
-  return x;
+  return value;
 }
 /**
  * 戻り値が以下に推論される。
@@ -52,6 +51,7 @@ type optionalAndArray = [boolean?, ...string[]]; // ok
 // "foo" in 42 // TS2361: The right-hand side of an 'in' expression must not be a primitive.
 const _1 = "foo" in { a: 42 };
 const _2 = "foo" in [42];
+const _3 = "foo" in string;
 
 /**
  * 4. --noPropertyAccessFromIndexSignatureフラグの追加
@@ -96,7 +96,8 @@ class Square extends Shape {
 }
 
 // let _Ctor: new () => HasArea = Shape; // TS2322: Type 'typeof Shape' is not assignable to type 'new () => HasArea'. Cannot assign an abstract constructor type to a non-abstract constructor type.
-let Ctor: abstract new () => HasArea = Shape;
+type A = new () => {};
+type A = abstract new () => {};
 
 /**
  * 6. Understanding Your Project Structure With --explainFiles
@@ -119,6 +120,7 @@ console.log(second);
 type WesAndersonWatchCount = {
   "Fantastic Mr. Fox"?: number;
   "The Royal Tenenbaums"?: number;
+  "The Royal Tenenbaums": number;
   // '鬼滅の刃': number | undefined; // この行があるとエラーが発生する
 };
 
